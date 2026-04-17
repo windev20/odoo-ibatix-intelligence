@@ -12,6 +12,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/partner_views.xml',
+        'views/wizard_confirm_adresse.xml',
     ],
     'installable': True,
     'application': False,
