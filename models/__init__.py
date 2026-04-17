@@ -1,1 +1,1 @@
-# Modules d'intelligence IBATIX
+from . import res_partner

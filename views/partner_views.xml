@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_partner_form_intelligence" model="ir.ui.view">
+        <field name="name">res.partner.form.ibatix.intelligence</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <page name="ibatix_informations" position="inside">
+                <div class="o_row mt-2">
+                    <button name="action_compute_precarite"
+                            string="Calculer la précarité"
+                            type="object"
+                            class="btn btn-primary"
+                            invisible="is_company"/>
+                </div>
+            </page>
+        </field>
+    </record>
+
+</odoo>
