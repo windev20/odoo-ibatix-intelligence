@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Bouton "Calculer la précarité" dans l'onglet Informations -->
     <record id="view_res_partner_form_intelligence" model="ir.ui.view">
         <field name="name">res.partner.form.ibatix.intelligence</field>
         <field name="model">res.partner</field>
@@ -15,6 +16,30 @@
                             invisible="is_company"/>
                 </div>
             </page>
+        </field>
+    </record>
+
+    <!-- Colonne "Avis d'imposition" + bouton Analyser dans le tableau fiscal -->
+    <record id="view_res_partner_form_intelligence_fiscal" model="ir.ui.view">
+        <field name="name">res.partner.form.ibatix.intelligence.fiscal</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="ibatix_champs.view_res_partner_form_ibatix"/>
+        <field name="arch" type="xml">
+            <field name="nb_parts_foyer" position="after">
+                <field name="avis_imposition"
+                       widget="binary"
+                       filename="avis_imposition_filename"
+                       string="Avis d'imposition"
+                       optional="show"/>
+                <field name="avis_imposition_filename" column_invisible="1"/>
+                <button name="action_parse_avis_imposition"
+                        string="Analyser"
+                        type="object"
+                        icon="fa-search"
+                        class="btn btn-sm btn-secondary"
+                        title="Extraire les données fiscales du PDF"
+                        invisible="not avis_imposition"/>
+            </field>
         </field>
     </record>
 
