@@ -85,3 +85,12 @@ class ResPartner(models.Model):
                 categorie = 'rose'       # 🩷 Supérieur
 
             partner.categorie_mpr = categorie
+
+            # 6. Catégorie CEE (déduite de la catégorie MPR)
+            mpr_to_cee = {
+                'bleu': 'precaire',
+                'jaune': 'modeste',
+                'violet': 'classique',
+                'rose': 'classique',
+            }
+            partner.categorie_precarite = mpr_to_cee.get(categorie, False)
